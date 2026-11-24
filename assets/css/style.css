@@ -1,0 +1,465 @@
+@font-face {
+    font-family: "Inter";
+    src: url("../fonte/Inter_24pt-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../fonte/Inter_24pt-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../fonte/Inter_24pt-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+
+:root {
+    --branco: #FFFFFF;
+    --preto: #000000;
+    --vermelho: #FF0000;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Inter", sans-serif;
+    color: var(--preto);
+    background: var(--branco);
+}
+
+button,
+input {
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+/* Botões */
+.btn-preto {
+    background: var(--preto);
+    color: var(--branco);
+    border: 1px solid var(--preto);
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-preto:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-contorno {
+    background: transparent;
+    color: var(--preto);
+    border: 1px solid var(--preto);
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Botão em forma de link (<a>) */
+.btn-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Botão de fechar (X) */
+.btn-fechar {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    cursor: pointer;
+    background-color: var(--preto);
+    -webkit-mask: url("../icones/close.svg") center / contain no-repeat;
+    mask: url("../icones/close.svg") center / contain no-repeat;
+}
+
+/* 1. Cabeçalho */
+.cabecalho {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 2px solid var(--preto);
+}
+
+.secao-usuario {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.foto-usuario {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nome-usuario {
+    font-weight: 600;
+}
+
+.secao-empresa {
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.secao-login {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Menu lateral */
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    padding: 60px 24px 24px;
+    background: var(--branco);
+    border-right: 2px solid var(--preto);
+    z-index: 20;
+}
+
+.estatistica {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+}
+
+.estatistica strong {
+    font-size: 1.6rem;
+}
+
+.btn-suas {
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px;
+    background: var(--branco);
+    color: var(--preto);
+    font-weight: 700;
+    border: 0;
+    border-top: 2px solid var(--preto);
+    border-bottom: 2px solid var(--preto);
+    cursor: pointer;
+}
+
+/* Corpo */
+.conteudo {
+    flex: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* 2.1 Busca */
+.busca {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.busca input {
+    width: 100%;
+    padding: 12px 52px 12px 16px;
+    border: 1px solid var(--preto);
+    border-radius: 6px;
+}
+
+.busca button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 48px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.busca button img {
+    width: 22px;
+    height: 22px;
+}
+
+.erro {
+    min-height: 1.2em;
+    margin: 4px 0 0;
+    color: var(--vermelho);
+    font-size: 0.9rem;
+}
+
+.erro-busca {
+    max-width: 640px;
+    margin: 6px auto 0;
+}
+
+/* Cadastro de fotografia */
+.cadastro {
+    max-width: 640px;
+    margin: 20px auto 0;
+    padding: 20px;
+    border: 1px solid var(--preto);
+    border-radius: 6px;
+}
+
+.cadastro label {
+    display: block;
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+.cadastro input[type="text"] {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px 12px;
+    border: 1px solid var(--preto);
+    border-radius: 6px;
+}
+
+.cadastro input[type="file"] {
+    margin-top: 6px;
+}
+
+.cadastro .btn-preto {
+    margin-top: 12px;
+}
+
+/* 2.2 Galeria: três colunas por linha */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.vazio {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+.card h3 {
+    margin: 0 0 8px;
+}
+
+.imagem {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Hover (tooltip) com fotógrafo e local */
+.dica {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 12px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--branco);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.imagem:hover .dica {
+    opacity: 1;
+}
+
+.linha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.curtir {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Coração: preto (sem curtir) e vermelho (curtido) */
+.coracao {
+    width: 25px;
+    height: 24px;
+    background-color: var(--preto);
+    -webkit-mask: url("../icones/coracao.svg") center / contain no-repeat;
+    mask: url("../icones/coracao.svg") center / contain no-repeat;
+}
+
+.curtir.curtido .coracao {
+    background-color: var(--vermelho);
+}
+
+.excluir {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.excluir img {
+    width: 20px;
+    height: 22px;
+}
+
+/* 3. Rodapé */
+.rodape {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 20px 24px;
+    background: var(--preto);
+    color: var(--branco);
+}
+
+.redes {
+    display: flex;
+    gap: 20px;
+}
+
+.redes img {
+    width: 28px;
+    height: 28px;
+}
+
+.rodape .direita {
+    text-align: right;
+}
+
+/* Popup/modal de login */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 30;
+}
+
+.modal-caixa {
+    position: relative;
+    width: 400px;
+    max-width: 90%;
+    padding: 28px;
+    background: var(--branco);
+    border-radius: 8px;
+}
+
+.modal-caixa h2 {
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+.modal-caixa input {
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px;
+    border: 1px solid var(--preto);
+    border-radius: 6px;
+}
+
+.botoes {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.botoes button {
+    flex: 1;
+}
+
+/* Página de cadastro */
+.link-cadastro {
+    margin: 16px 0 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.link-cadastro a {
+    color: var(--preto);
+    font-weight: 600;
+}
+
+.pagina-cadastro {
+    width: 440px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.pagina-cadastro h1 {
+    margin: 0 0 20px;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.pagina-cadastro label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.pagina-cadastro input[type="text"],
+.pagina-cadastro input[type="email"],
+.pagina-cadastro input[type="password"],
+.pagina-cadastro select {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px 12px;
+    border: 1px solid var(--preto);
+    border-radius: 6px;
+    background: var(--branco);
+    color: var(--preto);
+}
+
+.pagina-cadastro input[type="file"] {
+    margin-top: 6px;
+}
+
+.pagina-cadastro .botoes {
+    margin-top: 20px;
+}
+
+.pagina-cadastro .botoes a {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+}
